@@ -112,8 +112,8 @@
 
 #community .card {
   border: solid #bbbbbb 1px;
-  width: 280px;
-  height: 215px;
+  width: 260px;
+  height: 260px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,6 +122,13 @@
   border-radius: 12px;
 
   transition: all 0.3s ease;
+}
+
+#community .card .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #community .card:hover {
@@ -140,6 +147,19 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+#community .card .see-profile {
+  text-align: center;
+  padding: 2px;
+  width: 120px;
+  color: var(--blue);
+  border: solid var(--blue) 3px;
+  border-radius: 9999px;
+}
+
+#community .card .see-profile:hover {
+  transform: scale(1.05);
 }
 
 #community > #text {

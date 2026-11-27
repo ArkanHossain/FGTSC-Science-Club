@@ -34,7 +34,7 @@ async function getMembers() {
   const { data, error } = await supabase
     .from(CONFIG.tableName)
     .select("*")
-    .order("id", { ascending: true });
+    .order("Id", { ascending: true });
 
   if (error) {
     console.error("Error fetching members:", error);
@@ -47,7 +47,7 @@ async function getMembers() {
 // Format Supabase data
 function formatMembers(data) {
   return data.map((member) => ({
-    Id: member.id,
+    Id: member.Id,
     Name: member.Name,
     Rank: member.Rank,
     Class: String(member.Class),
@@ -83,10 +83,7 @@ function createMemberCard(member) {
 
   card.innerHTML = `
     <div class="img">
-      <img
-        src="${avatarUrl}"
-        alt="${member.Name}"
-      />
+      <img src="${avatarUrl}" />
     </div>
 
     <div class="text">
@@ -94,6 +91,7 @@ function createMemberCard(member) {
       <h5>${member.Rank}</h5>
       <p>${member.Class} - ${member.Department}</p>
       <p>${member.Star}</p>
+      <h5 class="see-profile">See Profile</h5>
     </div>
   `;
 
