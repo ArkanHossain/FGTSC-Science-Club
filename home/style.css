@@ -1,0 +1,304 @@
+/* ==================== Hero ==================== */
+
+.hero {
+  width: 100%;
+  max-height: 340px;
+  aspect-ratio: 16/10;
+  position: relative;
+  background: linear-gradient(0deg, #0055f1, #075acb, #0055f1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+
+.hero h1 {
+  font-size: min(7vw, 40px);
+}
+
+#hero-text {
+  position: absolute;
+  top: 15%;
+
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero-button {
+  padding: 4px 20px;
+  background-color: transparent;
+  border: solid white 3px;
+}
+
+#hero-button:hover {
+  transform: scale(1.1);
+}
+
+#hero-img {
+  position: absolute;
+
+  top: 70%;
+
+  width: min(80vw, 650px);
+  height: 285px;
+
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 25px;
+  overflow: hidden;
+
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.45);
+
+  transition: all 0.3s ease;
+}
+
+#hero-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 9px rgba(0, 0, 0, 0.45);
+}
+
+#hero-img img {
+  height: 100%;
+  object-fit: cover;
+}
+
+#hero-gap {
+  height: 120vw;
+  max-height: 250px;
+}
+
+#hero-content {
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ==================== Activities ==================== */
+
+.activity-card {
+  box-sizing: border-box;
+  padding: 8px;
+  width: 300px;
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.activity-card .emoji-art {
+  width: fit-content;
+  font-size: 44px;
+}
+
+#activity-card-holder {
+  width: min(75vw, 1080px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.activity-card .content-button {
+  background-color: transparent;
+  color: #0055f1;
+}
+
+/* ==================== One ==================== */
+
+#one-all-card-holder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#one-card-main {
+  width: min(80vw, 480px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+#one-card-main .emoji-art {
+  width: 100%;
+  font-size: 75px;
+  padding: 15px 0;
+}
+
+#one-card-main #text {
+  width: fit-content;
+  text-align: start;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+#one-card-main #text h3 {
+  color: #167b45;
+}
+
+#one-card-main #text .content-button {
+  background-color: #167b45;
+}
+
+#one-card-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.one-card {
+  width: min(90vw, 530px);
+  background-color: #f1f5f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+}
+
+.one-card #text {
+  padding: min(1vw, 35px) 0 min(1vw, 35px) 20px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.one-card #img {
+  width: 125px;
+  height: 135px;
+}
+
+.one-card #img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==================== Two ==================== */
+
+#two-card-holder {
+  width: min(75vw, 720px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.two-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  gap: 10px;
+}
+
+.two-card .emoji-art {
+  width: 100%;
+  font-size: 85px;
+}
+
+.two-card .content-button {
+  display: inline-block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.two-card:hover {
+  transform: scale(1.1);
+}
+
+.two-card:hover .content-button {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==================== Three ==================== */
+
+.content-divider #img {
+  width: min(80vw, 400px);
+  height: 240px;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+}
+
+.content-divider #img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-divider .main-text {
+  text-align: start;
+  align-items: flex-start;
+}
+
+/* ==================== Four ==================== */
+
+#four-card-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.four-card {
+  width: min(80vw, 340px);
+  border: solid #d9e0e6 2px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 15px;
+
+  transition: all 0.3s ease;
+}
+
+.four-card .emoji-art {
+  background-color: #f6f8f9;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 85px;
+  border-radius: 10px;
+}
+
+.four-card #text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.four-card:hover {
+  transform: scale(1.04);
+}

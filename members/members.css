@@ -1,0 +1,197 @@
+/* ==================== Hero ==================== */
+
+.hero {
+  width: 100%;
+  height: fit-content;
+  max-height: 340px;
+  aspect-ratio: 16/10;
+  background: linear-gradient(0deg, #0055f1, #075acb, #0055f1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: min(7vw, 40px);
+}
+
+#hero-text {
+  width: 85vw;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==================== Advisers ==================== */
+#advisers h5 {
+  color: #0874c9;
+}
+
+#advisers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+#advisers #text {
+  width: 80vw;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#advisers #advisers-card-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#advisers .card {
+  width: 350px;
+  height: 120px;
+  padding-left: 24px;
+  border-radius: 12px;
+  background-color: #f1f5f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#advisers .card .text {
+  text-align: start;
+}
+
+#advisers .card .img {
+  width: 120px;
+  height: 120px;
+}
+
+#advisers .card .img img {
+  border: solid #bbbbbb 1px;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: all 0.3s ease;
+}
+
+#advisers .card .img img:hover {
+  transform: scale(1.04);
+  box-shadow: 3px 3px 7px 0.1px #bbbbbb;
+}
+
+/* ==================== community ==================== */
+#community h5 {
+  color: #0874c9;
+}
+
+#community {
+  width: 80vw;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+#community #content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#community #content #text {
+  width: 400px;
+  text-align: start;
+}
+
+#community .content-button {
+  background-color: transparent;
+  color: #0055f1;
+  border: solid #0055f1 3px;
+}
+
+#community #community-card-holder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+#community .card {
+  border: solid #bbbbbb 1px;
+  width: 280px;
+  height: 215px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  transition: all 0.3s ease;
+}
+
+#community .card:hover {
+  transform: scale(1.02);
+  box-shadow: 3px 3px 10px 1px #bbbbbb;
+}
+
+#community .card .img {
+  width: 100px;
+  height: 100px;
+}
+
+#community .card .img img {
+  border: solid #bbbbbb 1px;
+  border-radius: 9999px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#community > #text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#see-all {
+  padding: 5px;
+  width: 100px;
+  color: white;
+  background-color: #0055f1;
+  border-radius: 9999px;
+
+  transition: all 0.3s ease;
+}
+
+#see-all:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 420px) {
+  #community #community-card-holder {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
