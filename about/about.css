@@ -1,17 +1,7 @@
 /* ==================== Hero ==================== */
 
 .hero {
-  width: 100%;
-  height: fit-content;
-  max-height: 340px;
-  aspect-ratio: 16/10;
-  background: linear-gradient(0deg, #0055f1, #075acb, #0055f1);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .hero h1 {
