@@ -5,7 +5,7 @@
   max-height: 340px;
   aspect-ratio: 16/10;
   position: relative;
-  background: linear-gradient(0deg, #0055f1, #075acb, #0055f1);
+  background: linear-gradient(0deg, var(--blue), #075acb, var(--blue));
   color: white;
   display: flex;
   flex-direction: column;
@@ -117,7 +117,7 @@
 
 .activity-card .content-button {
   background-color: transparent;
-  color: #0055f1;
+  color: var(--blue);
 }
 
 /* ==================== One ==================== */
@@ -155,11 +155,11 @@
 }
 
 #one-card-main #text h3 {
-  color: #167b45;
+  color: var(--green);
 }
 
 #one-card-main #text .content-button {
-  background-color: #167b45;
+  background-color: var(--green);
 }
 
 #one-card-holder {
@@ -170,7 +170,7 @@
 
 .one-card {
   width: min(90vw, 530px);
-  background-color: #f1f5f8;
+  background-color: var(--light-bg);
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -58,7 +58,7 @@
 #about-the-club .card {
   border: solid #bbbbbb 1px;
   padding: 10px;
-  background-color: #f1f5f8;
+  background-color: var(--light-bg);
   border-radius: 12px;
   width: 200px;
   height: 200px;
@@ -181,7 +181,7 @@
 .fg {
   position: absolute;
   height: 100%;
-  background: #0874c9;
+  background: var(--blue-dark);
   border-radius: 20px;
 }
 

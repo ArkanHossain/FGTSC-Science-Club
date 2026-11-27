@@ -4,6 +4,13 @@
   font-weight: 400;
 }
 
+:root {
+  --blue: #0055f1;
+  --blue-dark: #0874c9;
+  --green: #167b45;
+  --light-bg: #f1f5f8;
+}
+
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -14,7 +21,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: var(--light-bg);
 }
 
 html,
@@ -58,7 +65,7 @@ a {
 }
 
 .container > .text > h3 {
-  color: #0055f1;
+  color: var(--blue);
 }
 
 .design-wrap {
@@ -90,7 +97,7 @@ a {
   text-align: center;
   font-weight: 600;
   text-decoration: none;
-  background-color: #0055f1;
+  background-color: var(--blue);
   color: white;
   border-radius: 9999px;
   transition: all 0.3s ease;
@@ -103,7 +110,7 @@ a {
 /* ==================== Content Divider ==================== */
 
 .content-divider {
-  background: linear-gradient(#0873d6, #0864cb, #0753be);
+  background: linear-gradient(var(--blue-dark), var(--blue), var(--blue-dark));
   color: white;
   text-align: center;
 
@@ -127,7 +134,7 @@ a {
 #header {
   width: 100%;
   padding: 20px 20vw;
-  background-color: #0055f1;
+  background-color: var(--blue);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.45);
   display: flex;
   gap: 20vw;
@@ -164,7 +171,7 @@ a {
 #join {
   padding: 4px 20px;
   background-color: white;
-  color: #1c449c;
+  color: var(--blue);
   border: none;
 }
 
@@ -275,7 +282,7 @@ a {
 #footer #bottom {
   padding-top: 40px;
   width: 100%;
-  border-top: solid black;
+  border-top: solid var(--blue) 3px;
 }
 
 @media (max-width: 768px) {
