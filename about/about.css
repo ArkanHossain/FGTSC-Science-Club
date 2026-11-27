@@ -1,7 +1,20 @@
 /* ==================== Hero ==================== */
 
-.hero {
-
+.about.hero {
+  width: 100%;
+  height: fit-content;
+  max-height: 340px;
+  aspect-ratio: 16/10;
+  background-image: url("../assets/images/hero.jfif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero h1 {
