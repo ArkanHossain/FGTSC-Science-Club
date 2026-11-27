@@ -1,100 +1,53 @@
 import { supabase } from "./supabase.js";
 
-// Variables
-let members = [];
-let hidden = true;
-let visibleCards = 3;
+// ==========================================
+// CONFIGURATION
+// ==========================================
 
-// DOMs
+const CONFIG = {
+  visibleCards: 3,
+  initialHidden: true,
+  tableName: "Member Details",
+  avatarBucket: "Avatars",
+};
+
+// ==========================================
+// STATE
+// ==========================================
+
+let members = [];
+let hidden = CONFIG.initialHidden;
+
+// ==========================================
+// DOM ELEMENTS
+// ==========================================
+
+const cardHolder = document.getElementById("community-card-holder");
 const seeAll = document.getElementById("see-all");
 
-if (seeAll) {
-  const seeAllText = seeAll.querySelector("p");
+// ==========================================
+// DATA FUNCTIONS
+// ==========================================
 
-  seeAll.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    hidden = !hidden;
-
-    const cards = document.querySelectorAll(
-      "#community-card-holder .card"
-    );
-
-    cards.forEach((card, index) => {
-      if (index >= visibleCards) {
-        card.classList.toggle("hidden", hidden);
-      }
-    });
-
-    seeAllText.textContent = hidden ? "See All" : "See Less";
-  });
-}
-
-// Hide / Show Cards
-function hide(card, index) {
-  if (hidden) {
-    if (index >= visibleCards) {
-      card.classList.add("hidden");
-    }
-  } else {
-    let hiddenCards = document.querySelectorAll(
-      "#community-card-holder .hidden",
-    );
-
-    hiddenCards.forEach((hiddenCard) => {
-      hiddenCard.classList.remove("hidden");
-    });
-  }
-}
-
-// Display Members
-function showMembers(members) {
-  const cardHolder = document.getElementById("community-card-holder");
-
-  members.forEach((member, index) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-
-    const { data: avatarData } = supabase.storage
-      .from("Avatars")
-      .getPublicUrl(member.Avatar);
-
-    const avatarUrl = avatarData.publicUrl;
-
-    card.innerHTML = `
-      <div class="img">
-        <img
-          src="${avatarUrl}"
-          alt="${member.Name}"
-        />
-      </div>
-
-      <div id="text">
-        <h3>${member.Name}</h3>
-        <h5>${member.Rank}</h5>
-        <p>${member.Class} - ${member.Department}</p>
-        <p>${member.Star}</p>
-      </div>
-    `;
-
-    hide(card, index);
-    cardHolder.appendChild(card);
-  });
-}
-
-// Fetch Members from Supabase
+// Fetch members from Supabase
 async function getMembers() {
   const { data, error } = await supabase
-    .from("Member Details")
+    .from(CONFIG.tableName)
     .select("*")
     .order("id", { ascending: true });
 
   if (error) {
-    console.log(error);
-    return;
+    console.error("Error fetching members:", error);
+    return [];
   }
 
-  members = data.map((member) => ({
+  return data;
+}
+
+// Format Supabase data
+function formatMembers(data) {
+  return data.map((member) => ({
+    Id: member.id,
     Name: member.Name,
     Rank: member.Rank,
     Class: String(member.Class),
@@ -102,9 +55,121 @@ async function getMembers() {
     Star: member.Star,
     Avatar: member.Avatar_Path,
   }));
+}
+
+// ==========================================
+// AVATAR FUNCTIONS
+// ==========================================
+
+// Get public avatar URL
+function getAvatarUrl(avatarPath) {
+  const { data } = supabase.storage
+    .from(CONFIG.avatarBucket)
+    .getPublicUrl(avatarPath);
+
+  return data.publicUrl;
+}
+
+// ==========================================
+// CARD FUNCTIONS
+// ==========================================
+
+// Create an individual member card
+function createMemberCard(member) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  const avatarUrl = getAvatarUrl(member.Avatar);
+
+  card.innerHTML = `
+    <div class="img">
+      <img
+        src="${avatarUrl}"
+        alt="${member.Name}"
+      />
+    </div>
+
+    <div class="text">
+      <h3>${member.Name}</h3>
+      <h5>${member.Rank}</h5>
+      <p>${member.Class} - ${member.Department}</p>
+      <p>${member.Star}</p>
+    </div>
+  `;
+
+  return card;
+}
+
+// Control initial card visibility
+function hide(card, index) {
+  if (hidden && index >= CONFIG.visibleCards) {
+    card.classList.add("hidden");
+  }
+}
+
+// Display members
+function showMembers(members) {
+  if (!cardHolder) return;
+
+  cardHolder.innerHTML = "";
+
+  const fragment = document.createDocumentFragment();
+
+  members.forEach((member, index) => {
+    const card = createMemberCard(member);
+
+    hide(card, index);
+
+    fragment.appendChild(card);
+  });
+
+  cardHolder.appendChild(fragment);
+}
+
+// ==========================================
+// SEE ALL / SEE LESS
+// ==========================================
+
+function handleSeeAll(event) {
+  event.preventDefault();
+
+  hidden = !hidden;
+
+  const cards = cardHolder.querySelectorAll(".card");
+
+  cards.forEach((card, index) => {
+    if (index >= CONFIG.visibleCards) {
+      card.classList.toggle("hidden", hidden);
+    }
+  });
+
+  const seeAllText = seeAll.querySelector("p");
+
+  if (seeAllText) {
+    seeAllText.textContent = hidden ? "See All" : "See Less";
+  }
+}
+
+// Initialize See All button
+function initializeSeeAll() {
+  if (!seeAll || !cardHolder) return;
+
+  seeAll.addEventListener("click", handleSeeAll);
+}
+
+// ==========================================
+// INITIALIZATION
+// ==========================================
+
+async function initialize() {
+  initializeSeeAll();
+
+  const data = await getMembers();
+
+  members = formatMembers(data);
 
   showMembers(members);
 }
 
-// Initialize
-getMembers();
+// Start application
+initialize();
