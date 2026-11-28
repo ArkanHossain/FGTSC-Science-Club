@@ -105,9 +105,11 @@
 
 #community #community-card-holder {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 10px;
-  row-gap: 10px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, 260px);
+  justify-content: center;
+  gap: 10px;
+  margin-inline: auto;
 }
 
 #community .card {
