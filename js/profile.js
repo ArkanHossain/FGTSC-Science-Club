@@ -85,7 +85,7 @@ async function getMember() {
 
 getMember();
 
-let isHorizontal = false;
+let isHorizontal = window.innerWidth >= 420;
 
 function resizeCard() {
   const card = document.getElementById("card");
@@ -102,7 +102,17 @@ function resizeCard() {
   }
 }
 
-window.addEventListener("load", resizeCard);
+window.addEventListener("load", () => {
+  const stylesheet = document.getElementById("css");
+
+  stylesheet.setAttribute(
+    "href",
+    isHorizontal ? "./css/horizontal.css" : "./css/vertical.css"
+  );
+
+  resizeCard();
+});
+
 window.addEventListener("resize", resizeCard);
 
 const layout = document.getElementById("layout");
