@@ -91,9 +91,16 @@ function createMemberCard(member) {
       <h5>${member.Rank}</h5>
       <p>${member.Class} - ${member.Department}</p>
       <p>${member.Star}</p>
+      <br>
       <h5 class="see-profile">See Profile</h5>
     </div>
   `;
+
+  const profileButton = card.querySelector(".see-profile");
+
+  profileButton.addEventListener("click", () => {
+    window.location.href = `profile.html?id=${member.Id}`;
+  });
 
   return card;
 }
