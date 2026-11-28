@@ -17,6 +17,10 @@ const roll = document.getElementById("roll");
 
 const pfp = document.getElementById("pfp");
 
+const assignedHomework = document.getElementById("assigned-homework");
+const percentage = document.getElementById("percentage");
+const finishedHomework = document.getElementById("finished-homework");
+
 function showProfile(memberData) {
   name.textContent = memberData.Name;
   username.textContent = `@${memberData.User_Name}`;
@@ -25,6 +29,9 @@ function showProfile(memberData) {
   Class.textContent = memberData.Class;
   department.textContent = memberData.Department;
   roll.textContent = memberData.Roll;
+  assignedHomework.textContent = memberData.Assigned_Homework;
+  finishedHomework.textContent = memberData.Finished_Homework;
+  percentage.textContent = `${(memberData.Finished_Homework / memberData.Assigned_Homework) * 100}%`;
 
   const { data } = supabase.storage
     .from("Avatars")
@@ -62,3 +69,39 @@ async function getMember() {
 }
 
 getMember();
+
+let isHorizontal = false;
+
+function resizeCard() {
+  const card = document.getElementById("card");
+
+  if (isHorizontal) {
+    const originalWidth = 1170;
+    const availableWidth = window.innerWidth - 30;
+    const scale = Math.min(1, availableWidth / originalWidth);
+
+    card.style.zoom = scale;
+  } else {
+    // Normal vertical size
+    card.style.zoom = 1;
+  }
+}
+
+window.addEventListener("load", resizeCard);
+window.addEventListener("resize", resizeCard);
+
+const layout = document.getElementById("layout");
+
+layout.addEventListener("click", () => {
+  const stylesheet = document.getElementById("css");
+
+  if (isHorizontal) {
+    stylesheet.setAttribute("href", "./css/vertical.css");
+    isHorizontal = false;
+  } else {
+    stylesheet.setAttribute("href", "./css/horizontal.css");
+    isHorizontal = true;
+  }
+
+  resizeCard();
+});
