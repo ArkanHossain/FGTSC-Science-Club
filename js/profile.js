@@ -15,6 +15,8 @@ const Class = document.getElementById("class");
 const department = document.getElementById("department");
 const roll = document.getElementById("roll");
 
+const pfp = document.getElementById("pfp");
+
 function showProfile(memberData) {
   name.textContent = memberData.Name;
   username.textContent = `@${memberData.User_Name}`;
@@ -23,6 +25,12 @@ function showProfile(memberData) {
   Class.textContent = memberData.Class;
   department.textContent = memberData.Department;
   roll.textContent = memberData.Roll;
+
+  const { data } = supabase.storage
+    .from("Avatars")
+    .getPublicUrl(memberData.Avatar_Path || "male_pfp.jpg");
+
+  pfp.src = data.publicUrl;
 }
 
 // Fetch member data
