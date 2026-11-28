@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module" src="./js/profile.js"></script>
+
+    <! -- Print -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.3/html2pdf.bundle.min.js"></script>
+    <script src="./js/profile_print.js" defer></script>
+    <! -- Print -->
+
+    <link rel="stylesheet" href="./css/profile.css" />
+
+    <title>Member Profile</title>
+  </head>
+  <body>
+    <main>
+      <div id="card">
+        <div id="col-1">
+          <div id="img">
+            <img src="./assets/images/male_pfp.jpg" />
+          </div>
+          <br />
+          <div id="text">
+            <h1 id="name">Arkan Hossain</h1>
+            <h4 id="rank">President</h4>
+            <p id="username">@arkanhossain43</p>
+            <br />
+            <p id="star">⭐⭐⭐</p>
+          </div>
+        </div>
+
+        <div id="col-2">
+          <div id="sect-1">
+            <div class="sect-item">
+              <p>Class</p>
+              <h3 id="class">12</h3>
+            </div>
+            <div class="sect-item">
+              <p>Department</p>
+              <h3 id="department">IT</h3>
+            </div>
+            <div class="sect-item">
+              <p>Roll</p>
+              <h3 id="roll">01</h3>
+            </div>
+          </div>
+
+          <div id="sect-2">
+            <h4>Homework</h4>
+            <div class="sect-item">
+              <div>
+                <p>Assigned</p>
+                <p>Finished</p>
+              </div>
+
+              <div>
+                <h3>18</h3>
+                <h4>78%</h4>
+                <h3>14</h3>
+              </div>
+
+              <div id="bar">
+                <div id="bar-bg"></div>
+                <div id="bar-fg"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="sect-3">
+            <h4>Scientific Interests</h4>
+            <div id="interest-holder">
+              <p>Astrophysics</p>
+              <p>Robotics</p>
+              <p>Programming</p>
+            </div>
+          </div>
+
+          <div id="sect-4">
+            <h4>Contributions</h4>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p>Led the 2026 Science Fair, 12 projects shown</p>
+              </div>
+
+              <div class="timeline-item">
+                <p>Built an Arduino weather station for the lab</p>
+              </div>
+
+              <div class="timeline-item">
+                <p>Mentored 8 juniors in Python basics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="print">Print</div>
+    </main>
+  </body>
+</html>
