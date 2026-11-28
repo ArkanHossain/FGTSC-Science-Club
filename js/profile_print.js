@@ -7,11 +7,12 @@ printBtn.addEventListener("click", async () => {
     try {
         await document.fonts.ready;
 
-        const width = card.offsetWidth;
-        const height = card.offsetHeight;
+        const rect = card.getBoundingClientRect();
+        const width = Math.ceil(rect.width);
+        const height = Math.ceil(rect.height);
 
-        const pdfWidth = width * 25.4 / 96;
-        const pdfHeight = height * 25.4 / 96;
+        const pdfWidth = (width + 3) * 25.4 / 96;
+        const pdfHeight = (height + 3) * 25.4 / 96;
 
         const options = {
             margin: 0,
@@ -26,8 +27,18 @@ printBtn.addEventListener("click", async () => {
                 scale: 2,
                 useCORS: true,
                 backgroundColor: "#ffffff",
+
                 scrollX: 0,
-                scrollY: 0
+                scrollY: 0,
+
+                width: width,
+                height: height,
+
+                windowWidth: width,
+                windowHeight: height,
+
+                x: 0,
+                y: 0
             },
 
             jsPDF: {
@@ -44,14 +55,6 @@ printBtn.addEventListener("click", async () => {
         await html2pdf()
             .set(options)
             .from(card)
-            .toPdf()
-            .get("pdf")
-            .then(pdf => {
-                // Ensure only one page
-                while (pdf.internal.getNumberOfPages() > 1) {
-                    pdf.deletePage(pdf.internal.getNumberOfPages());
-                }
-            })
             .save();
 
     } catch (error) {

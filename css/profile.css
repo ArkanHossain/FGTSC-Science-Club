@@ -154,6 +154,7 @@ main {
 }
 
 #col-2 #sect-2 .sect-item {
+  box-sizing: border-box;
   padding: 20px;
   width: 100%;
   background-color: var(--light-bg);
