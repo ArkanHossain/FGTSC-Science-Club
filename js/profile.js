@@ -33,6 +33,21 @@ function showProfile(memberData) {
   finishedHomework.textContent = memberData.Finished_Homework;
   percentage.textContent = `${(memberData.Finished_Homework / memberData.Assigned_Homework) * 100}%`;
 
+  const contributions = memberData.Contribution;
+
+  const timeline = contributions
+    .split(",")
+    .map(
+      (item) => `
+  <div class="timeline-item">
+    <p>${item.trim()}</p>
+  </div>
+`,
+    )
+    .join("");
+
+  document.querySelector(".timeline").innerHTML = timeline;
+
   const { data } = supabase.storage
     .from("Avatars")
     .getPublicUrl(memberData.Avatar_Path || "male_pfp.jpg");
