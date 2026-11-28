@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
+  font-weight: 400;
+}
+
+:root {
+  --blue: #0055f1;
+  --blue-dark: #0874c9;
+  --green: #167b45;
+  --light-bg: #f1f5f8;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+
+#card {
+    display: flex;
+    gap: 20px;
+    background-color: var(--light-bg);
+}
+
+/* ================ COL-1 ================ */
+
+#card #col-1 {
+    padding: 0 40px 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    border: solid black 1px;
+    border-radius: 15px;
+}
+
+#card #col-1 #text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#card #col-1 #img {
+    width: 120px;
+    height: 120px;
+    border: solid #bbbbbb 1px;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+#img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================ COL-2 ================ */
+
+#card #col-2  {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ================ COL-2 ROW-1 ================ */
+
+#card #col-2 #row-1,
+#card #col-2 #row-2 {
+    padding: 20px 40px 20px 40px;
+    background-color: white;
+
+    border: solid black 1px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#row-1 .details-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+}
+
+#row-1 .details-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#row-1 .detail-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--light-bg);
+    padding-bottom: 12px;
+}
+
+#row-2 .details-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+}
+
+#row-2 .details-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#row-2 .detail-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--light-bg);
+    padding-bottom: 12px;
+}
