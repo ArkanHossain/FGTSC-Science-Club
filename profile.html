@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script type="module" src="./js/profile.js"></script>
+
+    <! -- Print -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.3/html2pdf.bundle.min.js"></script>
+    <script src="./js/profile_print.js" defer></script>
+    <! -- Print -->
 
     <link rel="stylesheet" href="./css/profile.css" />
 
@@ -18,93 +24,79 @@
           </div>
           <br />
           <div id="text">
-            <h3>Arkan Hossain</h3>
-            <h5>President</h5>
-            <h5>12 - IT</h5>
+            <h1>Arkan Hossain</h1>
+            <h4>President</h4>
             <p>@arkanhossain43</p>
-            <p>***</p>
+            <br />
+            <p>⭐⭐⭐</p>
           </div>
         </div>
 
         <div id="col-2">
-          <div id="row-1">
-            <h3>Student Details</h3>
-            <br>
-            <div class="details-container">
-              <!-- Left Column -->
-              <div class="details-column">
-                <div class="detail-item">
-                  <p>Id</p>
-                  <h4>1</h4>
-                </div>
+          <div id="sect-1">
+            <div class="sect-item">
+              <p>Class</p>
+              <h3>12</h3>
+            </div>
+            <div class="sect-item">
+              <p>Department</p>
+              <h3>IT</h3>
+            </div>
+            <div class="sect-item">
+              <p>Roll</p>
+              <h3>01</h3>
+            </div>
+          </div>
 
-                <div class="detail-item">
-                  <p>User name</p>
-                  <h4>@arkanhossain43</h4>
-                </div>
-
-                <div class="detail-item">
-                  <p>Class</p>
-                  <h4>12</h4>
-                </div>
-
-                <div class="detail-item">
-                  <p>Roll</p>
-                  <h4>1</h4>
-                </div>
+          <div id="sect-2">
+            <h4>Homework</h4>
+            <div class="sect-item">
+              <div>
+                <p>Assigned</p>
+                <p>Finished</p>
               </div>
 
-              <!-- Right Column -->
-              <div class="details-column">
-                <div class="detail-item">
-                  <p>Name</p>
-                  <h4>Arkan Hossain</h4>
-                </div>
+              <div>
+                <h3>18</h3>
+                <h4>78%</h4>
+                <h3>14</h3>
+              </div>
 
-                <div class="detail-item">
-                  <p>Rank</p>
-                  <h4>President</h4>
-                </div>
-
-                <div class="detail-item">
-                  <p>Department</p>
-                  <h4>IT</h4>
-                </div>
-
-                <div class="detail-item">
-                  <p>Star</p>
-                  <h4>***</h4>
-                </div>
+              <div id="bar">
+                <div id="bar-bg"></div>
+                <div id="bar-fg"></div>
               </div>
             </div>
           </div>
 
-          <div id="row-2">
-            <h3>Homework</h3>
-            <br>
-            <div class="details-container">
-              <!-- Left Column -->
-              <div class="details-column">
-                <div class="detail-item">
-                  <p>Assigned</p>
-                  <h4>--</h4>
-                </div>
-              </div>
-
-              <!-- Right Column -->
-              <div class="details-column">
-                <div class="detail-item">
-                  <p>Finished</p>
-                  <h4>--</h4>
-                </div>
-              </div>
+          <div id="sect-3">
+            <h4>Scientific Interests</h4>
+            <div id="interest-holder">
+              <p>Astrophysics</p>
+              <p>Robotics</p>
+              <p>Programming</p>
             </div>
           </div>
 
+          <div id="sect-4">
+            <h4>Contributions</h4>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p>Led the 2026 Science Fair, 12 projects shown</p>
+              </div>
 
+              <div class="timeline-item">
+                <p>Built an Arduino weather station for the lab</p>
+              </div>
 
+              <div class="timeline-item">
+                <p>Mentored 8 juniors in Python basics</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <div id="print">Print</div>
     </main>
   </body>
 </html>
